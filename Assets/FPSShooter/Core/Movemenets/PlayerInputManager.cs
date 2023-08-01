@@ -16,7 +16,7 @@ namespace FPSShooter.Core.Movemenets
                 Instance = this;
             else
                 Debug.LogError("There is more than one PlayerInputManager in the scene!");
-            
+
             _playerControl = new PlayerControl();
         }
 
@@ -34,7 +34,7 @@ namespace FPSShooter.Core.Movemenets
         {
             return _playerControl.Player.Move.ReadValue<Vector2>();
         }
-        
+
         public bool IsJumping()
         {
             return _playerControl.Player.Jump.triggered;
@@ -43,6 +43,11 @@ namespace FPSShooter.Core.Movemenets
         public Vector2 GetMouseDelta()
         {
             return _playerControl.Player.Look.ReadValue<Vector2>();
+        }
+
+        public bool IsShooting()
+        {
+            return _playerControl.Player.Shoot.triggered;
         }
     }
 }
